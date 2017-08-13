@@ -29,11 +29,11 @@ HEADERS += rustplugin.h \
 # Qt Creator linking
 
 ## set the QTC_SOURCE environment variable to override the setting here
-QTCREATOR_SOURCES = $$(QTC_SOURCE)
+QTCREATOR_SOURCES = $$QTC_SOURCE
 isEmpty(QTCREATOR_SOURCES):QTCREATOR_SOURCES=../qt-creator
 
 ## set the QTC_BUILD environment variable to override the setting here
-IDE_BUILD_TREE = $$(QTC_BUILD)
+IDE_BUILD_TREE = $$QTC_BUILD
 isEmpty(IDE_BUILD_TREE):IDE_BUILD_TREE=../qt-creator-build
 
 ## uncomment to build plugin into user config directory
