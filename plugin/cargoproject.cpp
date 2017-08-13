@@ -3,15 +3,13 @@
 #include "cargoprojectnode.h"
 #include "utils/fileutils.h"
 #include "cargoprojectmanager.h"
-#include "cargoprojectfile.h"
 
 using namespace Rust;
 
 CargoProject::CargoProject(CargoProjectManager* projectManager, QString projectFileName)
     : projectManager_(projectManager),
       projectFileName_(projectFileName),
-      rootNode_(new CargoProjectNode(Utils::FileName::fromString(projectFileName))),
-      projectFile_(new CargoProjectFile(projectFileName))
+      rootNode_(new CargoProjectNode(Utils::FileName::fromString(projectFileName)))
 {
 
 }
@@ -21,12 +19,6 @@ CargoProject::CargoProject(CargoProjectManager* projectManager, QString projectF
 QString CargoProject::displayName() const
 {
     return Utils::FileName::fromString(projectFileName_).parentDir().fileName();
-}
-
-// Not sure in what context this document is used.
-Core::IDocument* CargoProject::document() const
-{
-    return projectFile_.data();
 }
 
 ProjectExplorer::IProjectManager* CargoProject::projectManager() const

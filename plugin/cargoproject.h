@@ -8,7 +8,6 @@
 
 namespace Rust { class CargoProjectManager; }
 namespace Rust { class CargoProjectNode; }
-namespace Rust { class CargoProjectFile; }
 
 namespace Rust {
 
@@ -23,7 +22,6 @@ public:
     ~CargoProject();
     // ProjectExplorer::Project interface
     virtual QString displayName() const override;
-    virtual Core::IDocument* document() const override;
     virtual ProjectExplorer::IProjectManager* projectManager() const override;
     virtual ProjectExplorer::ProjectNode* rootProjectNode() const override;
     virtual QStringList files(FilesMode fileMode) const override;
@@ -33,7 +31,6 @@ private:
     CargoProjectManager* projectManager_;
     QString projectFileName_;
     QScopedPointer<CargoProjectNode> rootNode_;
-    QScopedPointer<CargoProjectFile> projectFile_;
 };
 }
 

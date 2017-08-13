@@ -6,7 +6,6 @@ SOURCES += rustplugin.cpp \
     cargoprojectmanager.cpp \
     cargoproject.cpp \
     cargoprojectnode.cpp \
-    cargoprojectfile.cpp \
     rusttoolchainfactory.cpp \
     rusttoolchain.cpp \
     rustoutputparser.cpp \
@@ -19,7 +18,6 @@ HEADERS += rustplugin.h \
     cargoprojectmanager.h \
     cargoproject.h \
     cargoprojectnode.h \
-    cargoprojectfile.h \
     rusttoolchainfactory.h \
     rusttoolchain.h \
     rustoutputparser.h \

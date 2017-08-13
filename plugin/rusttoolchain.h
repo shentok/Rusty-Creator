@@ -34,13 +34,12 @@ public:
     ReleaseChannel releaseChannel();
 
     // ProjectExplorer::ToolChain interface
-    virtual QString type() const override;
     virtual QString typeDisplayName() const override;
     virtual ProjectExplorer::Abi targetAbi() const override;
     virtual bool isValid() const override;
     virtual QByteArray predefinedMacros(const QStringList& cxxflags) const override;
     virtual CompilerFlags compilerFlags(const QStringList& cxxflags) const override;
-    virtual WarningFlags warningFlags(const QStringList& cflags) const override;
+    virtual ProjectExplorer::WarningFlags warningFlags(const QStringList& cflags) const override;
     virtual QList<ProjectExplorer::HeaderPath> systemHeaderPaths(const QStringList& cxxflags, const Utils::FileName& sysRoot) const override;
     virtual void addToEnvironment(Utils::Environment& env) const override;
     virtual QString makeCommand(const Utils::Environment& env) const override;

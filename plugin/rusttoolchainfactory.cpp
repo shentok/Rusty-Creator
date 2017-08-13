@@ -15,8 +15,10 @@ RustToolChainFactory::RustToolChainFactory()
     setDisplayName(QString::fromLatin1("Rust"));
 }
 
-QList<ToolChain*> RustToolChainFactory::autoDetect()
+QList<ToolChain*> RustToolChainFactory::autoDetect(const QList<ToolChain *> &alreadyKnown)
 {
+    Q_UNUSED(alreadyKnown)
+
     // STUB
     return QList<ToolChain*>();
 }
@@ -26,8 +28,10 @@ bool RustToolChainFactory::canCreate()
     return true;
 }
 
-ToolChain* RustToolChainFactory::create()
+ToolChain *RustToolChainFactory::create(ProjectExplorer::ToolChain::Language l)
 {
+    Q_UNUSED(l)
+
     return new RustToolChain;
 }
 
@@ -43,6 +47,11 @@ ToolChain* RustToolChainFactory::restore(const QVariantMap& data)
     Q_UNUSED(data)
     // STUB
     return nullptr;
+}
+
+QSet<ToolChain::Language> RustToolChainFactory::supportedLanguages() const
+{
+    return QSet<ToolChain::Language>();
 }
 
 }

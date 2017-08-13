@@ -21,11 +21,13 @@ public:
     RustToolChainFactory();
 
     // ProjectExplorer::ToolChainFactory interface
-    virtual QList<ProjectExplorer::ToolChain*> autoDetect() override;
+    virtual QList<ProjectExplorer::ToolChain*> autoDetect(const QList<ProjectExplorer::ToolChain *> &alreadyKnown) override;
     virtual bool canCreate() override;
-    virtual ProjectExplorer::ToolChain* create() override;
+    virtual ProjectExplorer::ToolChain *create(ProjectExplorer::ToolChain::Language l) override;
     virtual bool canRestore(const QVariantMap& data) override;
     virtual ProjectExplorer::ToolChain* restore(const QVariantMap& data) override;
+
+    virtual QSet<ProjectExplorer::ToolChain::Language> supportedLanguages() const override;
 };
 
 }

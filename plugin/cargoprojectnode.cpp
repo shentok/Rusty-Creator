@@ -83,7 +83,7 @@ void CargoProjectNode::updateDirContent(const QString & dir) {
 const FileName& CargoProjectNode::realDir(FolderNode* node) {
     return (node->asProjectNode())
             ? projDir_
-            : node->path();
+            : node->filePath();
 }
 
 CargoProjectNode::SearchState
@@ -115,8 +115,8 @@ void CargoProjectNode::updateFiles(FolderNode* node) {
     QMap<FileName, FileNode*> knownFilesWithNodes;
     {
         for(FileNode* f: node->fileNodes()) {
-            knownFiles << f->path();
-            knownFilesWithNodes.insert(f->path(), f);
+            knownFiles << f->filePath();
+            knownFilesWithNodes.insert(f->filePath(), f);
         }
     }
 
@@ -153,8 +153,8 @@ void CargoProjectNode::updateDirs(FolderNode* node) {
     QMap<FileName, FolderNode*> knownDirsWithNodes;
     {
         for(FolderNode* f: node->subFolderNodes()) {
-            knownDirs << f->path();
-            knownDirsWithNodes.insert(f->path(), f);
+            knownDirs << f->filePath();
+            knownDirsWithNodes.insert(f->filePath(), f);
         }
     }
 

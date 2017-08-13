@@ -13,7 +13,7 @@ using namespace Utils;
 namespace Rust {
 
 RustToolChain::RustToolChain()
-    : ToolChain(QString::fromLatin1("RustToolChainId"), ToolChain::ManualDetection)
+    : ToolChain(Core::Id("RustToolChainId"), ToolChain::ManualDetection)
 {
     setDisplayName(QString::fromLatin1("Rust Compiler"));
 }
@@ -26,11 +26,6 @@ void RustToolChain::setReleaseChannel(RustToolChain::ReleaseChannel c)
 RustToolChain::ReleaseChannel RustToolChain::releaseChannel()
 {
     return releaseChannel_;
-}
-
-QString RustToolChain::type() const
-{
-    return QString::fromLatin1("rustc");
 }
 
 QString RustToolChain::typeDisplayName() const
@@ -65,11 +60,11 @@ ToolChain::CompilerFlags RustToolChain::compilerFlags(const QStringList& cxxflag
     return ToolChain::NoFlags;
 }
 
-ToolChain::WarningFlags RustToolChain::warningFlags(const QStringList& cflags) const
+ProjectExplorer::WarningFlags RustToolChain::warningFlags(const QStringList& cflags) const
 {
     Q_UNUSED(cflags)
     // STUB
-    return ToolChain::WarningsDefault;
+    return ProjectExplorer::WarningFlags::All;
 }
 
 QList<HeaderPath> RustToolChain::systemHeaderPaths(const QStringList& cxxflags, const FileName& sysRoot) const
